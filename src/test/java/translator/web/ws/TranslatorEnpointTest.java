@@ -42,11 +42,11 @@ public class TranslatorEnpointTest {
 		GetTranslationRequest request = new GetTranslationRequest();
 		request.setLangFrom("en");
 		request.setLangTo("es");
-		request.setText("This is a test of translation service");
+		request.setText("Santa Cruz Xoxocotlan is a small city and municipality located 5 km from the state capital of Oaxaca in the south of Mexico");
 		Object response = new WebServiceTemplate(marshaller).marshalSendAndReceive("http://localhost:"
 				+ port + "/ws", request);
 		assertNotNull(response);
 		assertThat(response, instanceOf(GetTranslationResponse.class));
-		assertThat(((GetTranslationResponse) response).getTranslation(), is("Esto es una prueba de servicio de traducción"));
+		assertThat(((GetTranslationResponse) response).getTranslation(), is("Santa Cruz Xoxocotlan es una pequeña ciudad y municipio situado a 5 km de la capital del estado de Oaxaca, en el sur de México"));
 	}	
 }
